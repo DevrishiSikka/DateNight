@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Movie Night Planner</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+    </style>
+  </head>
+  <body class="bg-gray-100 text-gray-800" style="font-family: 'Inter'">
+    <main class="container mx-auto max-w-7xl bg-white p-6 rounded-lg shadow-md">
+      <h1 class="text-4xl font-bold text-center mb-8">
+        Our Special Movie Night
+      </h1>
+
+      <!-- Movie Selector -->
+      <div class="movie-selector bg-white p-6 rounded-lg shadow-lg text-center">
+        <!-- Search and Filters -->
+        <div class="search-bar mb-4">
+          <input
+            type="text"
+            id="search"
+            placeholder="Search movies..."
+            class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500"
+          />
+        </div>
+
+        <!-- Filter Options -->
+        <div class="filter-options flex gap-4 mb-6">
+          <select
+            id="genre-filter"
+            class="flex-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500"
+          >
+            <option value="">Select Genre</option>
+          </select>
+
+          <!-- Rating Filter -->
+          <select
+            id="rating-filter"
+            class="flex-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500"
+          >
+            <option value="">Select Rating</option>
+            <option value="1">1 Star & Up</option>
+            <option value="2">2 Stars & Up</option>
+            <option value="3">3 Stars & Up</option>
+            <option value="4">4 Stars & Up</option>
+            <option value="5">5 Stars & Up</option>
+          </select>
+        </div>
+
+        <!-- Movie List Grid -->
+        <div
+          id="movie-list"
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
+        ></div>
+
+        <!-- Pagination -->
+        <div class="pagination flex justify-between items-center mt-6">
+          <button
+            id="prev-page"
+            class="px-4 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-700 disabled:bg-gray-400"
+          >
+            Previous
+          </button>
+          <span id="current-page" class="text-gray-600">Page 1</span>
+          <button
+            id="next-page"
+            class="px-4 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-700 disabled:bg-gray-400"
+          >
+            Next
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <!-- Confirmation Modal -->
+    <div
+      id="confirmation-modal"
+      class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden"
+    >
+      <div class="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
+        <h2 class="text-2xl font-bold mb-4">Confirm Your Movie Night</h2>
+        <p class="mb-4">
+          You've selected:
+          <strong id="selected-movie" class="text-gray-800"></strong>
+        </p>
+
+        <div class="mb-4">
+          <label for="date" class="block text-sm font-semibold mb-1"
+            >Date</label
+          >
+          <input
+            type="date"
+            id="date"
+            class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500"
+          />
+        </div>
+        <div class="mb-4">
+          <label for="time" class="block text-sm font-semibold mb-1"
+            >Time</label
+          >
+          <input
+            type="time"
+            id="time"
+            class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500"
+          />
+        </div>
+
+        <div class="flex justify-end gap-2">
+          <button
+            id="cancel-btn"
+            class="px-4 py-2 bg-gray-400 text-white rounded-md hover:bg-gray-500"
+          >
+            Cancel
+          </button>
+          <button
+            id="confirm-btn"
+            class="px-4 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-700"
+          >
+            Confirm
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

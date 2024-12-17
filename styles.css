@@ -1,0 +1,51 @@
+.movie-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 250px; /* Adjust width as needed */
+    height: 450px; /* Adjust height as needed */
+    margin: 20px;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.movie-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.movie-image {
+    width: 100%;
+    height: 60%; /* Adjust as needed */
+    object-fit: cover;
+}
+
+/* Movie Title Scrolling */
+.movie-title {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%; /* Ensure the title takes up the full width */
+    font-size: 16px; /* Adjust font size */
+    font-weight: bold;
+    color: #333; /* Adjust the text color */
+    position: relative;
+    padding: 10px;
+}
+
+.movie-title.scrolling::after {
+    content: attr(data-title); /* Uses the full movie title */
+    position: absolute;
+    animation: scroll-text 5s linear infinite; /* Adjust scroll speed here */
+}
+
+@keyframes scroll-text {
+    0% {
+        transform: translateX(100%); /* Start off-screen to the right */
+    }
+    100% {
+        transform: translateX(-100%); /* Move off-screen to the left */
+    }
+}
