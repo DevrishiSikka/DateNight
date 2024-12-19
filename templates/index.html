@@ -4,14 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Our Movie Night Planner</title>
-    <link rel="stylesheet" href="styles.css" />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
     </style>
   </head>
-  <body class="bg-gray-100 text-gray-800" style="font-family: 'Inter'">
-    <main class="container mx-auto max-w-7xl bg-white p-6 rounded-lg shadow-md">
+  <body
+    class="bg-gradient-to-r from-slate-900 to-slate-700 mt-6"
+    style="font-family: 'Inter'"
+  >
+    <main
+      class="container mx-auto max-w-7xl bg-white p-6 rounded-lg shadow-md"
+      id="container"
+    >
       <h1 class="text-4xl font-bold text-center mb-8">
         Our Special Movie Night
       </h1>
@@ -79,11 +84,13 @@
     <!-- Confirmation Modal -->
     <div
       id="confirmation-modal"
-      class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden"
+      class="fixed inset-0 flex items-center justify-center bg-transparent bg-opacity-50 hidden"
     >
       <div class="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
-        <h2 class="text-2xl font-bold mb-4">Confirm Your Movie Night</h2>
-        <p class="mb-4">
+        <h2 class="text-2xl font-bold mb-4 text-center">
+          Confirm Your Movie Night
+        </h2>
+        <p class="mb-4 text-center">
           You've selected:
           <strong id="selected-movie" class="text-gray-800"></strong>
         </p>
@@ -109,7 +116,45 @@
           />
         </div>
 
-        <div class="flex justify-end gap-2">
+        <!-- Recipient Details -->
+        <div id="recipient-container" class="mb-4">
+          <!-- Sender Name -->
+          <div class="mb-4">
+            <label for="sender-name" class="block text-sm font-semibold mb-1">Your Name</label>
+            <input
+              type="text"
+              id="sender-name"
+              placeholder="Your Name"
+              class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500"
+            />
+          </div>
+          <div class="recipient-item mb-2">
+            <label for="recipient-name" class="block text-sm font-semibold mb-1">Recipient Details</label>
+            <div class="flex gap-4">
+              <input
+                type="text"
+                id="recipient-name"
+                placeholder="Recipient Name"
+                class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500"
+              />
+              <input
+                type="email"
+                id="recipient-email"
+                placeholder="Recipient Email"
+                class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500"
+              />
+            </div>
+          </div>
+        </div>
+
+        <button
+          id="add-recipient-btn"
+          class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-400 w-full"
+        >
+          Add Another Recipient
+        </button>
+
+        <div class="flex justify-end gap-2 mt-4">
           <button
             id="cancel-btn"
             class="px-4 py-2 bg-gray-400 text-white rounded-md hover:bg-gray-500"
@@ -125,7 +170,7 @@
         </div>
       </div>
     </div>
-
-    <script src="script.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
   </body>
 </html>
